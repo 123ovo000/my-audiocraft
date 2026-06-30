@@ -62,7 +62,7 @@ def main():
     val_size = len(full_dataset) - train_size
     train_ds, val_ds = random_split(full_dataset, [train_size, val_size])
 
-    # 🔥 关键修改：collate_fn 改为 x[0]，直接返回字典，不再是列表
+    # collate_fn 改为 x[0]，直接返回字典，不再是列表
     train_loader = DataLoader(train_ds, batch_size=1, shuffle=True, collate_fn=lambda x: x[0])
     val_loader = DataLoader(val_ds, batch_size=1, shuffle=False, collate_fn=lambda x: x[0])
 
