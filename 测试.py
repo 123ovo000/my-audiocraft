@@ -19,7 +19,7 @@ def main():
     print("正在注入微调权重...")
     model.lm.load_state_dict(torch.load(CKPT_PATH, map_location=device))
 
-    # --- 【核心改进】设置生成策略 ---
+    
     # 增加 temperature 和 top_k，让生成结果从“复读机”变成“艺术家”
     model.set_generation_params(
         use_sampling=True,  # 开启随机采样，而非确定性输出
